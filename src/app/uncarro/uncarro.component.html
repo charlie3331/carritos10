@@ -1,0 +1,17 @@
+<div class="bg-dark text-white min-vh-100 d-flex justify-content-center align-items-center">
+  <div class="d-flex align-items-center">
+    <!-- Imagen del carro -->
+    <img [src]="carro.img" alt="{{ carro.modelo }}">
+    
+    <!-- Contenido del carro -->
+    <div class="d-grid gap-2">
+      <h1>{{ carro.modelo }}</h1>
+      <h2>{{ carro.marca }}</h2>
+      <p>Año: {{carro.anio}}</p>
+      <p>Color: {{carro.color}}</p>
+      <p>{{carro.bio}}</p>
+      <p>${{carro.precio}} pesos mexicanos</p>
+      <button [routerLink]="['/carros']" class="btn btn-primary">Regresar</button>
+    </div>
+  </div>
+</div>

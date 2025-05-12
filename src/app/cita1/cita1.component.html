@@ -1,0 +1,18 @@
+<div *ngIf="citas.length > 0; else sinCita">
+  <h2>Citas Registradas</h2>
+  <div *ngFor="let cita of citas; let i = index" class="cita">
+    <p><strong>Nombre:</strong> {{ cita.nombre }}</p>
+    <p><strong>Teléfono:</strong> {{ cita.telefono }}</p>
+    <p><strong>Modelo:</strong> {{ cita.modelo }}</p>
+    <p><strong>Promoción:</strong> {{ cita.promocion ? 'Sí' : 'No' }}</p>
+    <p><strong>Tipo de cita:</strong> {{ cita.tipoCita }}</p>
+    <p><strong>Fecha:</strong> {{ cita.fecha }}</p>
+    <button (click)="editarCita(i)">Editar</button>
+    <button (click)="borrarCita(i)">Borrar</button>
+    <hr>
+  </div>
+</div>
+
+<ng-template #sinCita>
+  <p>No hay ninguna cita registrada.</p>
+</ng-template>

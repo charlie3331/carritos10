@@ -1,0 +1,22 @@
+<h1>Financiamiento de Carros</h1>
+
+<div>
+  <h3>Seleccione un Carro:</h3>
+  <div *ngFor="let carro of carros">
+    <input 
+      type="radio" 
+      name="carro" 
+      [value]="carro" 
+      (change)="seleccionarCarro(carro)" 
+      [checked]="carroSeleccionado === carro">
+    {{ carro.marca }} - {{ carro.modelo }} - ${{ carro.precio }}
+  </div>
+</div>
+
+<!-- Componente hijo que recibe el carro y emite el monto -->
+<app-hijo 
+  [carroSeleccionado]="carroSeleccionado"
+  (financiamientoCalculado)="recibirMonto($event)">
+</app-hijo>
+
+<p *ngIf="monto">Monto total del financiamiento mensual: ${{ monto }}</p>

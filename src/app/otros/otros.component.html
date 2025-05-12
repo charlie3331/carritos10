@@ -1,0 +1,21 @@
+<h2>Autos Disponibles</h2>
+
+<input type="text" [(ngModel)]="filtroMarca" placeholder="Buscar por marca" />
+
+@if (autosFiltrados.length > 0) {
+  <ul>
+    @for (auto of autosFiltrados; track auto.modelo) {
+      <li  [ngStyle]="{ 'color': 'blue'}"
+      [ngClass]="{ 'auto-item': true }">
+        <strong>{{ auto.marca }} {{ auto.modelo }}</strong> ({{ auto.anio }}) -
+        ${{ auto.precio_usd }} USD -
+        Tipo: {{ auto.tipo }} -
+        <span [ngStyle]="{ 'color': auto.disponible ? 'green' : 'red', 'display': 'block' }">
+          {{ auto.disponible ? 'Disponible' : 'No disponible' }}
+        </span>
+      </li>
+    }
+  </ul>
+} @else {
+  <p>No se encontraron autos con esa marca.</p>
+}

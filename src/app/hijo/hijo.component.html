@@ -1,0 +1,13 @@
+<h3>Opciones de Financiamiento</h3>
+
+<label>
+  <input type="radio" name="meses" value="6" [(ngModel)]="meses"> 6 meses (+5%)
+</label><br>
+<label>
+  <input type="radio" name="meses" value="12" [(ngModel)]="meses"> 12 meses (+10%)
+</label><br>
+<label>
+  <input type="radio" name="meses" value="24" [(ngModel)]="meses"> 24 meses (+20%)
+</label><br><br>
+
+<button (click)="calcularFinanciamiento()">Calcular Financiamiento</button>

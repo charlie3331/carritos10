@@ -1,0 +1,29 @@
+<a [routerLink]="['/home']">HOME</a>
+<a [routerLink]="['/carros']">CARROS</a>
+<a [routerLink]="['/about']">About</a>
+<a [routerLink]="['/otros']">Competencia</a>
+<a [routerLink]="['/padre']">Financiamiento</a>
+
+@if (!estaLogueado) {
+  <a [routerLink]="['/login']">Login</a>
+}
+
+@if (estaLogueado) {
+  <div class="dropdown">
+    <button class="dropbtn">Configuración</button>
+    <div class="dropdown-content">
+      <a [routerLink]="['/cita1']">Citas1</a>
+      <a [routerLink]="['/cita2']">Citas2</a>
+      <a [routerLink]="['/home']">Admin</a>
+      <a [routerLink]="['/formulario1']">F1</a>
+      <a [routerLink]="['/formulario2']">F2</a>
+    </div>
+  </div>
+  <a (click)="cerrarSesion()" style="cursor: pointer;">Cerrar sesión</a>
+}
+
+
+<div>
+  <input type="text" placeholder="buscar" #buscarTexto (keyup.enter)="buscarUnCarro(buscarTexto.value)">
+  <button (click)="buscarUnCarro(buscarTexto.value)" type="button">Buscar</button>
+</div>
